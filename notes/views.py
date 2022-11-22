@@ -3,7 +3,14 @@ from django.shortcuts import render
 from . import models
 from .forms import NotesForm
 from .models import Notes
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
+
+
+class NotesUpdateView(UpdateView):
+    template_name = 'notes/notes_form.html'
+    form_class = NotesForm
+    success_url = '/smart/notes'
+
 
 
 class NotesCreateView(CreateView):
